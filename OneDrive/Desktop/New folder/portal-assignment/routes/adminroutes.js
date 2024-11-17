@@ -1,0 +1,11 @@
+const express = require('express');
+const router = express.Router();
+const { registerAdmin, loginAdmin, getAssignments, acceptAssignment, rejectAssignment } = require('../controllers/admincontrollers');
+const { getAllAdmins } = require('../controllers/usercontroller');
+router.post('/register', registerAdmin);
+router.post('/login', loginAdmin);
+router.get('/assignments', getAssignments);
+router.post('/assignments/:id/accept', acceptAssignment);
+router.post('/assignments/:id/reject', rejectAssignment);
+router.get('/admins', getAllAdmins);
+module.exports = router;
